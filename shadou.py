@@ -41,10 +41,9 @@ class ShaDou(object):
             self._saveBooks(ret)
 
     def setAllBooks(self):
-        print 'hahahahha'
-        print len(self.books)
-        print 'hahahahhahaha'
+        left = len(self.books)
         while self.books:
+            print left, 'book[s] left'
             book = self.books.pop()
             param = {}
             param['status'] = book['status']
@@ -52,6 +51,7 @@ class ShaDou(object):
             param['tags'] = ' '.join(book.get('tags', []))
             param['rating'] = int(book.get('rating', {}).get('value', 0))
             self.client.book.newBook(book['book_id'], param)
+            left = left-1
 
     def login(self):
         self.client = None
