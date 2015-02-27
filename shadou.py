@@ -4,6 +4,7 @@ import requests
 
 USERFROM = "knd2"
 USERTO = "bt404"
+COUNT = 100
 BOOK = 1
 MOVIE = 2
 MUSIC = 3
@@ -23,9 +24,8 @@ class ShaDou(object):
         self.music = []
         self.client = None
 
-    def getInfo(self, type=BOOK):
-        ret = requests.get("https://api.douban.com/v2/book/1220562")
-        print ret
+    def getAllBooks(self, type=BOOK):
+        start = 0
 
     def login(self):
         self.client = DoubanClient(API_KEY, API_SECRET, REDIRECT_URI, SCOPE)
@@ -36,19 +36,23 @@ class ShaDou(object):
 
 
 if __name__ == "__main__":
-    client = DoubanClient(API_KEY, API_SECRET, REDIRECT_URI, SCOPE)
-    print 'Go to the following link in your browser:' 
-    print client.authorize_url
-    code = raw_input('Enter the verification code:')
-    client.auth_with_code(code)
+    #client = DoubanClient(API_KEY, API_SECRET, REDIRECT_URI, SCOPE)
+    #print 'Go to the following link in your browser:' 
+    #print client.authorize_url
+    #code = raw_input('Enter the verification code:')
+    #client.auth_with_code(code)
 
-    #ret = client.book.getMyBook('25857804')
+    #ret = client.book.getBook('25857804')
 
-    param = {}
-    param['status'] = 'read'
-    param['tags'] = 'efficience learning'
-    param['comment'] = 'a good self-learning book'
-    param['rating'] = '4'
+    #param = {}
+    #param['status'] = 'read'
+    #param['tags'] = 'efficience learning'
+    #param['comment'] = 'a good self-learning book'
+    #param['rating'] = '4'
+    #ret = client.book.newBook('26297606', param)
 
-    ret = client.book.newBook('26297606', param)
-    print ret
+    ret = client.book.getAllBooks(USERFROM)
+    print ret['start']
+    print ret['count']
+    print len(ret['collections'])
+    #print ret

@@ -20,3 +20,7 @@ class Book(Subject):
     def newBook(self, book_id, param):
         u"设置自己对指定图书的收藏"
         return self._put('/v2/book/%s/collection' % book_id, **param)
+
+    def getAllBooks(self, uid, start, count):
+        u"获取自己所有图书收藏信息"
+        return self._get('/v2/book/user/%s/collections?count=100&start=100' % uid)
