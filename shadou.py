@@ -5,10 +5,10 @@ import requests
 USERFROM = "knd2"
 COUNT = 100
 
-#API_KEY = '01270ca17245f891037525e456d1e9b3'
-#API_SECRET = 'c4732649acfecebb'
-API_KEY = '09d2c50567d6e5491d784f103784afdb'
-API_SECRET = 'c194f8fccc17a325'
+API_KEY = '01270ca17245f891037525e456d1e9b3'
+API_SECRET = 'c4732649acfecebb'
+#API_KEY = '09d2c50567d6e5491d784f103784afdb'
+#API_SECRET = 'c194f8fccc17a325'
 REDIRECT_URI = 'http://jzguo.com/callback_dou'
 SCOPE = 'douban_basic_common,book_basic_r,book_basic_w'
 

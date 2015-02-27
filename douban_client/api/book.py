@@ -26,4 +26,4 @@ class Book(Subject):
 
     def getAllBooks(self, uid, start, count):
         u"获取自己所有图书收藏信息"
-        return self._get('/v2/book/user/%s/collections?count=%s&start=%s' % (uid, start, count))
+        return self._get('/v2/book/user/%s/collections?start=%s&count=%s' % (uid, start, count))
