@@ -8,7 +8,7 @@
 
 ## 操作步骤
 
-1. 执行 `python shadou.py`；
+1. 修改 USERFROM 为原账户用户名，执行 `python shadou.py`；
 
 2. 复制网址到浏览器，输入原账户用户名密码信息并授权；
 
