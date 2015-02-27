@@ -12,3 +12,11 @@ class Book(Subject):
 
     def isbn(self, isbn_id):
         return self._get('/v2/book/isbn/%s' % isbn_id)
+
+    def getBook(self, book_id):
+        u"获取自己对指定图书的收藏信息"
+        return self._get('/v2/book/%s/collection' % book_id)
+
+    def newBook(self, book_id, param):
+        u"设置自己对指定图书的收藏"
+        return self._put('/v2/book/%s/collection' % book_id, **param)
