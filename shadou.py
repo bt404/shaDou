@@ -1,15 +1,14 @@
 # -*- coding: utf8 -*-
 from douban_client import DoubanClient
 import requests
+import time
 
 # 首次获取的图书信息数
 COUNT = 100
 
-API_KEY = '01270ca17245f891037525e456d1e9b3'
-API_SECRET = 'c4732649acfecebb'
-#API_KEY = '09d2c50567d6e5491d784f103784afdb'
-#API_SECRET = 'c194f8fccc17a325'
-REDIRECT_URI = 'http://jzguo.com/callback_dou'
+API_KEY = ''
+API_SECRET = ''
+REDIRECT_URI = ''
 # 权限设置
 SCOPE = 'douban_basic_common,book_basic_r,book_basic_w'
 
@@ -34,7 +33,8 @@ class ShaDou(object):
         self.books = []
         ret = self.client.book.getAllBooks(user_from, start, COUNT)
         self._saveBooks(ret)
-        total = int(ret.get('total', 0))
+        #total = int(ret.get('total', 0))
+        total = 45
         start = start+int(ret.get('count', 0))
         total = total-int(ret.get('count', 0))
         while total>0:
@@ -56,6 +56,7 @@ class ShaDou(object):
             param['rating'] = int(book.get('rating', {}).get('value', 0))
             self.client.book.newBook(book['book_id'], param)
             left = left-1
+        print 'migration complete!'
 
     def login(self):
         self.client = None
