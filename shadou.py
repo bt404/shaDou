@@ -33,14 +33,15 @@ class ShaDou(object):
         self.books = []
         ret = self.client.book.getAllBooks(user_from, start, COUNT)
         self._saveBooks(ret)
-        #total = int(ret.get('total', 0))
-        total = 45
-        start = start+int(ret.get('count', 0))
-        total = total-int(ret.get('count', 0))
+        total = int(ret.get('total', 0))
+        count = int(ret.get('count', 0))
+        start = start+count
+        total = total-count
         while total>0:
             ret = self.client.book.getAllBooks(user_from, start, total)
-            total = total-int(ret.get('count', 0))
-            start = start+int(ret.get('count', 0))
+            count = int(ret.get('count', 0))
+            start = start+count
+            total = total-count
             self._saveBooks(ret)
 
     def setAllBooks(self):
@@ -59,7 +60,6 @@ class ShaDou(object):
         print 'migration complete!'
 
     def login(self):
-        self.client = None
         self.client = DoubanClient(API_KEY, API_SECRET, REDIRECT_URI, SCOPE)
         print 'Go to the following link in your browser:' 
         print self.client.authorize_url
