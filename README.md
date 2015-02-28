@@ -3,6 +3,7 @@
 ## 名称
 
 /'ʃædəʊ/
+
  shaDou  := sha[dow]Dou[ban]
 
 ## 功能
