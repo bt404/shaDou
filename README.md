@@ -2,7 +2,8 @@
 
 ## 名称
 
-`shaDou := sha[dow]Dou[ban]`
+/'ʃædəʊ/
+ shaDou  := sha[dow]Dou[ban]
 
 ## 功能
 
