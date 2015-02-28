@@ -16,9 +16,6 @@ class ShaDou(object):
     u"豆瓣图书信息迁移"
 
     def __init__(self):
-        self.books = []
-        self.movies = []
-        self.music = []
         self.client = None
         self.books = None
 
